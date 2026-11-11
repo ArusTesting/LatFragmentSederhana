@@ -47,8 +47,14 @@ class fSatu : Fragment() {
         val btnOpenFSatu = view.findViewById<Button>(R.id.btnOpenFSatu)
 
         btnOpenFSatu.setOnClickListener {
+            val fragmentDua = fDua()
+            val dataKirim = Bundle().apply {
+                putString("Nama", "Andi")
+                putString("Alamat", "Siwalankerto")
+            }
+            fragmentDua.arguments = dataKirim
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fDua())
+                .replace(R.id.fragment_container, fragmentDua)
                 .addToBackStack(null)
                 .commit()
         }
